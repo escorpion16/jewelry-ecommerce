@@ -4,6 +4,7 @@ const INITIAL_STATE = {
   shopList: [],
   productDetail: {},
   isLoading: false,
+  categories: [],
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -22,6 +23,11 @@ const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isLoading: action.payload,
+      };
+    case actions.setCategories:
+      return {
+        ...state,
+        categories: action.payload,
       };
     default:
       return state;
