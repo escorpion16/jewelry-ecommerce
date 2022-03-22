@@ -1,7 +1,7 @@
 import "./App.css";
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Cart, Login, Product, Shop } from "./pages";
-import { ProtectedRoutes, LoadingScreen } from "./components/index";
+import { ProtectedRoutes, LoadingScreen, MainLayout } from "./components/index";
 import { useSelector } from "react-redux";
 
 const App = () => {
@@ -16,9 +16,11 @@ const App = () => {
           <Route path="/" element={<Navigate to="/Shop" />} />
 
           <Route element={<ProtectedRoutes />}>
-            <Route path="/shop" element={<Shop />} />
-            <Route path="/shop/:id" element={<Product />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route element={<MainLayout />}>
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/shop/:id" element={<Product />} />
+              <Route path="/cart" element={<Cart />} />
+            </Route>
           </Route>
         </Routes>
       </HashRouter>

@@ -1,21 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   getCategoriesThunk,
   getShopThunk,
   filterCategoryThunk,
   filterByNameThunk,
 } from "../redux/action";
-import { useNavigate, Link } from "react-router-dom";
 
 const Shop = () => {
-  const navigate = useNavigate();
-
-  const logOut = () => {
-    localStorage.setItem("token", "");
-    navigate("/login");
-  };
-
   const shopList = useSelector((state) => state.shopList);
   const categories = useSelector((state) => state.categories);
   const dispatch = useDispatch();
@@ -39,7 +32,7 @@ const Shop = () => {
   return (
     <div>
       <h1>Shop</h1>
-      <button onClick={logOut}>Log out</button>
+
       <ul>
         {categories.map((category) => (
           <li key={category.id}>
