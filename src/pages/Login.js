@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import styles from "../styles/login.module.css";
+import jewelryVideo from "../videos/arab.mp4";
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
@@ -21,14 +23,25 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(submit)}>
-        <div className="input-form">
+    <div className={styles.wrapperLogin}>
+      <video autoPlay loop muted className={styles.jewelryVideo}>
+        <source src={jewelryVideo} type="video/mp4" />
+      </video>
+      <form onSubmit={handleSubmit(submit)} className={styles.containerLogin}>
+        <h2>Anise Jewelry</h2>
+
+        <div className={styles.testData}>
+          <div>Test data</div>
+          <div>email: admin@admin.com</div>
+          <div>password: root</div>
+        </div>
+
+        <div className={styles.inputForm}>
           <label htmlFor="email">Email</label>
           <input type="email" id="email" {...register("email")} required />
         </div>
 
-        <div className="input-form">
+        <div className={styles.inputForm}>
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -38,7 +51,7 @@ const Login = () => {
           />
         </div>
         {loginError}
-        <button>Log in</button>
+        <button className={styles.btnLogin}>Log in</button>
       </form>
     </div>
   );
