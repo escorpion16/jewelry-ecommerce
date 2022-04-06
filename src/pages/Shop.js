@@ -7,6 +7,7 @@ import {
   filterCategoryThunk,
   filterByNameThunk,
 } from "../redux/action";
+import styles from "../styles/shop.module.css";
 
 const Shop = () => {
   const shopList = useSelector((state) => state.shopList);
@@ -30,10 +31,20 @@ const Shop = () => {
   };
 
   return (
-    <div>
-      <h1>Shop</h1>
+    <div className={styles.shopWrapper}>
+      <h1>Anise</h1>
 
-      <ul>
+      <form onSubmit={filterByName} className={styles.form}>
+        <input
+          id="name"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Type to search"
+        />
+        <button>Search</button>
+      </form>
+
+      <ul className={styles.categories}>
         {categories.map((category) => (
           <li key={category.id}>
             <button onClick={() => filterByCategory(category.id)}>
@@ -43,19 +54,14 @@ const Shop = () => {
         ))}
       </ul>
 
-      <form onSubmit={filterByName}>
-        <input
-          id="name"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <button>Search</button>
-      </form>
-
-      <div>
+      <div className={styles.jewelContainer}>
         {shopList.map((shop) => (
-          <Link key={shop.id} to={`/shop/${shop.id}`}>
-            <div>{shop.description}</div>
+          <Link key={shop.id} to={`/shop/${shop.id}`} className={styles.jewel}>
+            <div className={styles.imageJewel}>
+              <img src={shop.images[0].url} alt="" />
+            </div>
+            <h4 className={styles.detailsJewel}>{shop.name}</h4>
+            <h4 className={styles.detailsJewel}>${shop.price}</h4>
           </Link>
         ))}
       </div>
