@@ -1,0 +1,49 @@
+.productWrapper {
+  width: 100vw;
+}
+
+.productWrapper .mainProduct {
+  width: 100%;
+}
+
+.relatedProducts {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+
+.relatedProducts .relatedJewel {
+  width: 20%;
+  color: #000;
+  margin: 1rem;
+  text-decoration: none;
+}
+
+.imageJewel img {
+  width: 250px;
+  height: 250px;
+}
+
+.relatedJewel .detailsJewel {
+  margin: 0.2rem;
+  font-weight: normal;
+}
+
+.mainProduct {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.detailsMainProduct {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainImageJewel img {
+  width: 400px;
+  height: 400px;
+}

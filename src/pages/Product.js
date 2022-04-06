@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { getProductThunk, filterCategoryThunk } from "../redux/action";
+import styles from "../styles/product.module.css";
 
 const Product = () => {
   const { id } = useParams();
@@ -19,20 +20,36 @@ const Product = () => {
 
   const relatedProducts = useSelector((state) => state.shopList);
 
-  console.log(productDetail);
-
   return (
-    <div>
-      <div>product component</div>
-      <div>{productDetail.name}</div>
-      <h3>Related Products: </h3>
-      <ul>
+    <div className={styles.productWrapper}>
+      <div className={styles.mainProduct}>
+        <div className={styles.mainImageJewel}>
+          {/* <img src={productDetail.images[0].url} alt="" /> */}
+        </div>
+        <div className={styles.detailsMainProduct}>
+          <h4>{productDetail.name}</h4>
+          <h4>${productDetail.price}</h4>
+          <p>{productDetail.description}</p>
+        </div>
+      </div>
+
+      <h3> Our Jewels </h3>
+
+      <div className={styles.relatedProducts}>
         {relatedProducts.map((product) => (
-          <Link key={product.id} to={`/shop/${product.id}`}>
-            <li>{product.name}</li>
+          <Link
+            key={product.id}
+            to={`/shop/${product.id}`}
+            className={styles.relatedJewel}
+          >
+            <div className={styles.imageJewel}>
+              <img src={product.images[0].url} alt="" />
+            </div>
+            <h4 className={styles.detailsJewel}>{product.name}</h4>
+            <h4 className={styles.detailsJewel}>${product.price}</h4>
           </Link>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

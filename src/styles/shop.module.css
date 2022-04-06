@@ -25,13 +25,10 @@
   justify-content: center;
 }
 
-.jewel {
-  text-decoration: none;
-}
-
 .jewelContainer .jewel {
   width: 20%;
   padding: 1.5rem;
+  text-decoration: none;
 }
 
 .imageJewel img {
