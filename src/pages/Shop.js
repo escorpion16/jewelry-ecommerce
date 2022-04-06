@@ -39,7 +39,7 @@ const Shop = () => {
           id="name"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Type to search"
+          placeholder="Type to searcstoreh"
         />
         <button>Search</button>
       </form>
