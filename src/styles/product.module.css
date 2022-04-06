@@ -47,3 +47,30 @@
   width: 400px;
   height: 400px;
 }
+
+.shoppingContainer {
+  width: 100%;
+}
+
+.shoppingContainer .quantity {
+  display: flex;
+  justify-content: center;
+}
+
+.shoppingContainer .btnAddToCart {
+  height: 2.1rem;
+  width: 30%;
+  border: 2px solid #000;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.shoppingContainer .btnAddToCart:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+.quantity .quantityNumber {
+  padding: 0.2rem 1rem;
+}
