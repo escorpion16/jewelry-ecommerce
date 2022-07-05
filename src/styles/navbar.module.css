@@ -1,0 +1,11 @@
+.btnMenu {
+  width: 3rem;
+  height: 1.5rem;
+  margin: 1rem;
+  text-decoration: none;
+  color: black;
+}
+
+.btnMenu:hover {
+  color: #2c8fd8;
+}
